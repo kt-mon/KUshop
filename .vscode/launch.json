@@ -1,0 +1,53 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Cafe",
+            "request": "launch",
+            "mainClass": "Cafe",
+            "projectName": "Java_97f28490"
+        },
+        {
+            "type": "java",
+            "name": "ArrayCafe",
+            "request": "launch",
+            "mainClass": "ArrayCafe",
+            "projectName": "Java_97f28490"
+        },
+        {
+            "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "Test",
+            "projectName": "Java_97f28490"
+        },
+        {
+            "type": "java",
+            "name": "test",
+            "request": "launch",
+            "mainClass": "test",
+            "projectName": "Java_97f28490"
+        },
+        {
+            "type": "java",
+            "name": "Quiz2",
+            "request": "launch",
+            "mainClass": "Quiz2",
+            "projectName": "Java_97f28490"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": [
+                "Banana",
+                "Apple"
+            ]
+        }
+    ]
+}
