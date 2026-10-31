@@ -1,7 +1,9 @@
 package com.mycompany.kushopsystem;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.io.IOException;
-import java.nio.file.*;
+import java.nio.file.*; 
 
 public class UserStore {
 
@@ -30,5 +32,17 @@ public class UserStore {
         String line = user + "|" + pass + "|" + question + "|" + answer + System.lineSeparator();
         Files.writeString(FILE, line, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
     }
+    
+    public static void updatePassword(String username, String newPass) throws IOException {
+    List<String> out = new ArrayList<>();
+    for (String line : Files.readAllLines(FILE)) {
+        String[] p = line.split("\\|", -1);
+        if (p.length == 4 && p[0].equals(username)) {
+            line = p[0] + "|" + newPass + "|" + p[2] + "|" + p[3];
+        }
+        out.add(line);
+    }
+    Files.write(FILE, out);
+}
      
 }

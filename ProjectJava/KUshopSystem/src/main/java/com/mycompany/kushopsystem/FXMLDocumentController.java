@@ -19,6 +19,39 @@ import javafx.util.Duration;
 public class FXMLDocumentController implements Initializable {
 
     @FXML
+    private TextField fp_username;
+
+    @FXML
+    private TextField fp_answer;
+
+    @FXML
+    private Button fp_back;
+
+    @FXML
+    private Button fp_proceedBtn;
+
+    @FXML
+    private ComboBox<String> fp_question;
+
+    @FXML
+    private AnchorPane fp_questionForm;
+
+    @FXML
+    private Button np_back;
+
+    @FXML
+    private Button np_changePassBtn;
+
+    @FXML
+    private PasswordField np_confirmPass;
+
+    @FXML
+    private PasswordField np_newPass;
+
+    @FXML
+    private AnchorPane np_newPassForm;
+
+    @FXML
     private Hyperlink si_forgotPass;
 
     @FXML
@@ -66,6 +99,79 @@ public class FXMLDocumentController implements Initializable {
         "What is your favorite food?"
     };
 
+    private String resetUser;
+
+
+    @FXML
+    private void switchForgotPass() {
+        fp_questionForm.setVisible(true);
+        si_loginForm.setVisible(false);
+        np_newPassForm.setVisible(false);
+    }
+
+    @FXML
+    private void proceedForgot() {
+        String u = fp_username.getText().trim();
+        String q = fp_question.getValue();
+        String a = fp_answer.getText().trim();
+
+        if (u.isEmpty() || q == null || a.isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, "กรุณากรอกข้อมูลให้ครบ");
+            return;
+        }
+
+        String[] user = UserStore.find(u);
+        // user[2] = คำถามที่ตั้งไว้ตอนสมัคร, user[3] = คำตอบ
+        if (user != null && user[2].equals(q) && user[3].equalsIgnoreCase(a)) {
+            resetUser = u;
+            fp_questionForm.setVisible(false);
+            np_newPassForm.setVisible(true);
+        } else {
+            showAlert(Alert.AlertType.ERROR, "ข้อมูลไม่ถูกต้อง");
+        }
+    }
+
+    @FXML
+    private void changePass() {
+        String p1 = np_newPass.getText();
+        String p2 = np_confirmPass.getText();
+
+        if (p1.isEmpty() || p2.isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, "กรุณากรอกรหัสผ่านให้ครบ");
+            return;
+        }
+        if (p1.contains("|")) {
+            showAlert(Alert.AlertType.ERROR, "ห้ามใช้เครื่องหมาย | ในรหัสผ่าน");
+            return;
+        }
+        if (!p1.equals(p2)) {
+            showAlert(Alert.AlertType.ERROR, "รหัสผ่านไม่ตรงกัน");
+            return;
+        }
+
+        try {
+            UserStore.updatePassword(resetUser, p1);
+            showAlert(Alert.AlertType.INFORMATION, "เปลี่ยนรหัสผ่านสำเร็จ");
+            backToLogin();
+        } catch (IOException e) {
+            showAlert(Alert.AlertType.ERROR, "บันทึกข้อมูลไม่สำเร็จ");
+        }
+    }
+
+    @FXML
+    private void backToLogin() {
+        fp_questionForm.setVisible(false);
+        np_newPassForm.setVisible(false);
+        si_loginForm.setVisible(true);
+
+        fp_username.clear();
+        fp_answer.clear();
+        fp_question.getSelectionModel().clearSelection();
+        np_newPass.clear();
+        np_confirmPass.clear();
+        resetUser = null;
+    }
+
     public void switchForm(ActionEvent event) {
 
         TranslateTransition slider = new TranslateTransition();
@@ -78,6 +184,10 @@ public class FXMLDocumentController implements Initializable {
             slider.setOnFinished((ActionEvent e) -> {
                 side_AlreadyHave.setVisible(true);
                 side_CreateBtn.setVisible(false);
+
+                fp_questionForm.setVisible(false);
+                si_loginForm.setVisible(true);
+                np_newPassForm.setVisible(false);
             });
 
             slider.play();
@@ -89,6 +199,10 @@ public class FXMLDocumentController implements Initializable {
             slider.setOnFinished((ActionEvent e) -> {
                 side_AlreadyHave.setVisible(false);
                 side_CreateBtn.setVisible(true);
+
+                fp_questionForm.setVisible(false);
+                si_loginForm.setVisible(true);
+                np_newPassForm.setVisible(false);
             });
 
             slider.play();
@@ -155,5 +269,9 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         su_question.getItems().addAll(questionList);
+        fp_question.getItems().addAll(questionList);
+
+        fp_questionForm.setVisible(false);
+        np_newPassForm.setVisible(false);
     }
 }
