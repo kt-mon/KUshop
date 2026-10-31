@@ -15,6 +15,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 public class FXMLDocumentController implements Initializable {
 
@@ -101,7 +105,6 @@ public class FXMLDocumentController implements Initializable {
 
     private String resetUser;
 
-
     @FXML
     private void switchForgotPass() {
         fp_questionForm.setVisible(true);
@@ -121,7 +124,6 @@ public class FXMLDocumentController implements Initializable {
         }
 
         String[] user = UserStore.find(u);
-        // user[2] = คำถามที่ตั้งไว้ตอนสมัคร, user[3] = คำตอบ
         if (user != null && user[2].equals(q) && user[3].equalsIgnoreCase(a)) {
             resetUser = u;
             fp_questionForm.setVisible(false);
@@ -221,7 +223,21 @@ public class FXMLDocumentController implements Initializable {
 
         String[] user = UserStore.find(u);
         if (user != null && user[1].equals(p)) {
-            showAlert(Alert.AlertType.INFORMATION, "เข้าสู่ระบบสำเร็จ");
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainForm.fxml"));
+                Parent root = loader.load();
+
+                mainFormController main = loader.getController();
+                main.setUsername(u);
+
+                Stage stage = (Stage) si_loginBtn.getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.sizeToScene();
+                stage.centerOnScreen();
+            } catch (IOException e) {
+                e.printStackTrace();
+                showAlert(Alert.AlertType.ERROR, "เปิดหน้าหลักไม่สำเร็จ");
+            }
         } else {
             showAlert(Alert.AlertType.ERROR, "Username หรือ Password ไม่ถูกต้อง");
         }

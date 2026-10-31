@@ -50,21 +50,22 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Button fx:id="fp_proceedBtn" layoutX="40.0" layoutY="249.0" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="220.0" styleClass="login-btn" stylesheets="@loginDesign.css" text="Proceed" />
-                  <ComboBox fx:id="fp_question" layoutX="40.0" layoutY="135.0" prefHeight="34.0" prefWidth="220.0" promptText="Question" />
-                  <TextField fx:id="fp_answer" layoutX="40.0" layoutY="189.0" prefHeight="34.0" prefWidth="220.0" promptText="Answer" styleClass="text-field" stylesheets="@loginDesign.css" />
-                  <Button fx:id="fp_back" layoutX="121.0" layoutY="345.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="58.0" styleClass="login-btn" stylesheets="@loginDesign.css" text="Back" />
+                  <Button fx:id="fp_proceedBtn" layoutX="40.0" layoutY="261.0" mnemonicParsing="false" onAction="#proceedForgot" prefHeight="40.0" prefWidth="220.0" styleClass="login-btn" stylesheets="@loginDesign.css" text="Proceed" />
+                  <ComboBox fx:id="fp_question" layoutX="40.0" layoutY="160.0" prefHeight="34.0" prefWidth="220.0" promptText="Question" />
+                  <TextField fx:id="fp_answer" layoutX="40.0" layoutY="206.0" prefHeight="30.0" prefWidth="220.0" promptText="Answer" styleClass="text-field" stylesheets="@loginDesign.css" />
+                  <Button fx:id="fp_back" layoutX="121.0" layoutY="345.0" mnemonicParsing="false" onAction="#backToLogin" prefHeight="26.0" prefWidth="58.0" styleClass="login-btn" stylesheets="@loginDesign.css" text="Back" />
+                  <TextField fx:id="fp_username" layoutX="40.0" layoutY="120.0" prefHeight="30.0" prefWidth="220.0" promptText="Username" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="np_newPassForm" layoutX="307.0" prefHeight="412.0" prefWidth="300.0" styleClass="white-form" stylesheets="@loginDesign.css" visible="false">
+            <AnchorPane fx:id="np_newPassForm" layoutX="307.0" prefHeight="412.0" prefWidth="300.0" styleClass="white-form" stylesheets="@loginDesign.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="2.6000000000000227" AnchorPane.topAnchor="0.0">
                <children>
                   <Label layoutX="26.0" layoutY="60.0" styleClass="head-label" stylesheets="@loginDesign.css" text="Forgot Password" textFill="#18ac08">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Button fx:id="np_changePassBtn" layoutX="33.0" layoutY="240.0" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="220.0" styleClass="login-btn" stylesheets="@loginDesign.css" text="Change Password" />
-                  <Button fx:id="np_back" layoutX="115.0" layoutY="349.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="58.0" styleClass="login-btn" stylesheets="@loginDesign.css" text="Back" />
+                  <Button fx:id="np_changePassBtn" layoutX="33.0" layoutY="240.0" mnemonicParsing="false" onAction="#changePass" prefHeight="40.0" prefWidth="220.0" styleClass="login-btn" stylesheets="@loginDesign.css" text="Change Password" />
+                  <Button fx:id="np_back" layoutX="115.0" layoutY="349.0" mnemonicParsing="false" onAction="#backToLogin" prefHeight="26.0" prefWidth="58.0" styleClass="login-btn" stylesheets="@loginDesign.css" text="Back" />
                   <PasswordField fx:id="np_newPass" layoutX="34.0" layoutY="131.0" prefHeight="30.0" prefWidth="220.0" promptText="New Password" />
                   <PasswordField fx:id="np_confirmPass" layoutX="33.0" layoutY="181.0" prefHeight="30.0" prefWidth="220.0" promptText="Confirm Password" />
                </children>
@@ -80,7 +81,7 @@
                   <Button fx:id="side_AlreadyHave" layoutX="40.0" layoutY="346.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="220.0" styleClass="create-btn" stylesheets="@loginDesign.css" text="Already have an Account" visible="false" />
                   <ImageView fitHeight="175.0" fitWidth="312.0" layoutX="-1.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Kushop%20Logo.png" />
+                        <Image url="@KushopLogo.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="58.0" layoutY="201.0" text="KU SHOP SYSTEM" textAlignment="CENTER" textFill="WHITE">

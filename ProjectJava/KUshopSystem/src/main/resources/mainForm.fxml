@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.kushopsystem.mainFormController">
+   <children>
+      <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane layoutX="202.0" layoutY="137.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <left>
+                  <AnchorPane prefHeight="600.0" prefWidth="222.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="11.0" layoutY="184.0" prefHeight="600.0" prefWidth="222.4" styleClass="nav-form" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Button fx:id="logout_btn" layoutX="76.0" layoutY="558.0" mnemonicParsing="false" styleClass="logout" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css" text="Sign Out" textFill="WHITE" AnchorPane.bottomAnchor="14.8" AnchorPane.leftAnchor="76.0" />
+                              <AnchorPane layoutX="11.0" layoutY="78.0" prefHeight="87.0" prefWidth="222.0" styleClass="header" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <ImageView fitHeight="88.0" fitWidth="159.0" layoutX="31.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/com/mycompany/kushopsystem/KushopLogo.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label layoutX="80.0" layoutY="51.0" text="KU Shop" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <Label layoutX="14.0" layoutY="116.0" text="Welcome," textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="username" layoutX="86.0" layoutY="113.0" text="User" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="dashboard_btn" layoutX="6.0" layoutY="191.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="210.0" styleClass="nav-btn" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css" text="Dashboard" textFill="#64ff27" />
+                              <Button fx:id="inventory_btn" layoutX="6.0" layoutY="244.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="210.0" styleClass="nav-btn" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css" text="Inventory" />
+                              <Button fx:id="catalog_btn" layoutX="6.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="210.0" styleClass="nav-btn" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css" text="Catalog" />
+                              <Button fx:id="customer_btn" layoutX="6.0" layoutY="353.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="210.0" styleClass="nav-btn" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css" text="Customers" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="dashboard_form" layoutX="270.0" layoutY="176.0" prefHeight="600.0" prefWidth="877.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="163.0" prefWidth="847.0" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css" AnchorPane.leftAnchor="14.399999999999977" AnchorPane.rightAnchor="16.399999999999977" AnchorPane.topAnchor="14.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="radius" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <ScrollPane layoutX="476.0" layoutY="-18.0" prefHeight="182.4" prefWidth="847.2" styleClass="transparent" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <content>
+                                          <AnchorPane prefHeight="20.0" prefWidth="1050.0">
+                                             <children>
+                                                <AnchorPane layoutX="30.0" layoutY="14.0" prefHeight="126.0" prefWidth="280.0" styleClass="nav-form" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css">
+                                                   <children>
+                                                      <ImageView fitHeight="88.0" fitWidth="72.0" layoutX="14.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@/com/mycompany/kushopsystem/Customer.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Label layoutX="95.0" layoutY="92.0" text="Number of Customer" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="236.0" layoutY="13.0" text="0" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="335.0" layoutY="14.0" prefHeight="126.0" prefWidth="280.0" styleClass="nav-form" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css">
+                                                   <children>
+                                                      <ImageView fitHeight="88.0" fitWidth="72.0" layoutX="14.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@/com/mycompany/kushopsystem/dolla.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Label layoutX="105.0" layoutY="90.0" text="Today's Income" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="236.0" layoutY="13.0" text="0.0" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="645.0" layoutY="14.0" prefHeight="126.0" prefWidth="280.0" styleClass="nav-form" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css">
+                                                   <children>
+                                                      <ImageView fitHeight="88.0" fitWidth="72.0" layoutX="14.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@/com/mycompany/kushopsystem/money.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Label layoutX="111.0" layoutY="90.0" text="Total Income" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="236.0" layoutY="13.0" text="0" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="955.0" layoutY="14.0" prefHeight="126.0" prefWidth="280.0" styleClass="nav-form" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css">
+                                                   <children>
+                                                      <ImageView fitHeight="88.0" fitWidth="72.0" layoutX="14.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@/com/mycompany/kushopsystem/cart.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Label layoutX="97.0" layoutY="90.0" text="Number of Sold Product" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="236.0" layoutY="13.0" text="0" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="15.0" layoutY="198.0" prefHeight="388.0" prefWidth="847.0" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.400000000000091" AnchorPane.topAnchor="198.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="radius" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane layoutX="20.0" layoutY="15.2" prefHeight="355.0" prefWidth="438.0" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="389.0" AnchorPane.topAnchor="15.0">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="radius" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <AreaChart layoutX="-9.0" layoutY="-31.0" prefHeight="369.6" prefWidth="420.0" title="Income's Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </AreaChart>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="505.0" layoutY="15.0" prefHeight="355.0" prefWidth="348.0" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css" AnchorPane.bottomAnchor="17.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="15.0">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="radius" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <AreaChart layoutX="-31.2" layoutY="-45.0" prefHeight="355.0" prefWidth="351.0" title="Customer Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </AreaChart>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                              <Separator layoutX="14.4" layoutY="185.0" prefHeight="4.0" prefWidth="847.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="185.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="inventory_form" layoutX="65.0" layoutY="122.0" prefHeight="600.0" prefWidth="877.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.4" layoutY="14.4" prefHeight="278.0" prefWidth="849.0" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css" AnchorPane.bottomAnchor="308.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="radius" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="inventory_tableView" layoutX="14.0" layoutY="13.0" prefHeight="252.0" prefWidth="823.0" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css" AnchorPane.bottomAnchor="12.800000000000011" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="11.200000000000045" AnchorPane.topAnchor="13.0">
+                                      <columns>
+                                        <TableColumn fx:id="inventory_col_ProductID" prefWidth="75.0" text="Product ID" />
+                                        <TableColumn fx:id="inventory_col_ProductName" prefWidth="152.8000030517578" text="Product Name" />
+                                          <TableColumn fx:id="inventory_col_Type" prefWidth="123.2000732421875" text="Type" />
+                                          <TableColumn fx:id="inventory_col_Stock" prefWidth="117.60003662109375" text="Stock" />
+                                          <TableColumn fx:id="inventory_col_Price" prefWidth="126.39996337890625" text="Price" />
+                                          <TableColumn fx:id="inventory_col_Status" prefWidth="104.7999267578125" text="Status" />
+                                          <TableColumn fx:id="inventory_col_Date" prefWidth="104.7999267578125" text="Date" />
+                                      </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                       <styleClass>
+                                          <String fx:value="table-view" />
+                                          <String fx:value="colume-header" />
+                                          <String fx:value="colume-header-background" />
+                                       </styleClass>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="15.2" layoutY="357.0" prefHeight="253.0" prefWidth="850.0" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="13.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="radius" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="54.0" layoutY="23.0" prefHeight="22.0" prefWidth="90.0" text="ID Product:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="137.0" layoutY="22.0" prefHeight="26.0" prefWidth="142.0" />
+                                    <Label layoutX="30.0" layoutY="63.0" prefHeight="22.0" prefWidth="115.0" text="Product Name:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="137.0" layoutY="61.0" prefHeight="25.0" prefWidth="168.0" />
+                                    <Label layoutX="88.0" layoutY="104.0" prefHeight="22.0" prefWidth="38.0" text="Type:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox layoutX="137.0" layoutY="103.0" prefHeight="25.0" prefWidth="168.0" promptText="Choose Type" />
+                                    <Label layoutX="381.0" layoutY="23.0" prefHeight="22.0" prefWidth="44.0" text="Stock:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="432.0" layoutY="22.0" prefHeight="25.0" prefWidth="168.0" promptText="0" />
+                                    <Label layoutX="382.0" layoutY="62.0" prefHeight="22.0" prefWidth="42.0" text="Price:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="432.0" layoutY="60.0" prefHeight="25.0" prefWidth="168.0" promptText="0.0" />
+                                    <AnchorPane layoutX="694.0" layoutY="16.0" prefHeight="134.0" prefWidth="126.0" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css" AnchorPane.rightAnchor="29.200000000000045">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <ImageView fx:id="inventory_imageView" fitHeight="134.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children>
+                                    </AnchorPane>
+                                    <Button fx:id="inventory_importBtn" layoutX="707.0" layoutY="163.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" styleClass="btn" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css" text="Import" AnchorPane.rightAnchor="42.60000000000002" />
+                                    <Button layoutX="68.0" layoutY="188.0" mnemonicParsing="false" onAction="#inventory_addBtn" prefHeight="41.0" prefWidth="115.0" styleClass="btn" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css" text="Add" AnchorPane.bottomAnchor="23.999999999999993" />
+                                    <Button layoutX="221.0" layoutY="188.0" mnemonicParsing="false" onAction="#inventory_updateBtn" prefHeight="41.0" prefWidth="115.0" styleClass="btn" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css" text="Update" AnchorPane.bottomAnchor="23.999999999999993" />
+                                    <Button layoutX="382.0" layoutY="188.0" mnemonicParsing="false" onAction="#inventory_clearBtn" prefHeight="41.0" prefWidth="115.0" styleClass="btn" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css" text="Clear" AnchorPane.bottomAnchor="23.999999999999993" />
+                                    <Button layoutX="531.0" layoutY="188.0" mnemonicParsing="false" onAction="#inventory_deleteBtn" prefHeight="41.0" prefWidth="115.0" styleClass="btn" stylesheets="@/com/mycompany/kushopsystem/mainFormDesign.css" text="Delete" AnchorPane.bottomAnchor="23.999999999999993" />
+                                    <Label layoutX="379.0" layoutY="104.0" prefHeight="22.0" prefWidth="47.0" text="Status:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox layoutX="430.0" layoutY="103.0" prefHeight="25.0" prefWidth="168.0" promptText="Choose Status" />
+                                 </children>
+                              </AnchorPane>
+                              <Separator layoutX="16.0" layoutY="312.0" prefHeight="0.0" prefWidth="847.0" AnchorPane.bottomAnchor="284.8" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="14.400000000000091" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
