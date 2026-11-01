@@ -13,7 +13,6 @@ public class SaleStore {
 
     private static final Path FILE = Paths.get("sales.txt");
 
-    // แต่ละรายการ = [วันที่, username, productId, ชื่อ, จำนวน, ยอดรวม]
     public static List<String[]> load() {
         List<String[]> list = new ArrayList<>();
         if (!Files.exists(FILE)) {
