@@ -27,7 +27,6 @@ public class cardProductController {
     private Product product;
     private mainFormController main;
 
-    // เรียกจากหน้าหลักตอนสร้างการ์ดแต่ละใบ
     public void setData(Product product, mainFormController main) {
         this.product = product;
         this.main = main;
@@ -40,7 +39,6 @@ public class cardProductController {
         }
 
         if (product.getStock() > 0) {
-            // เลือกจำนวนได้ตั้งแต่ 1 ถึงจำนวนที่มีในสต็อก
             prod_spinner.setValueFactory(
                     new SpinnerValueFactory.IntegerSpinnerValueFactory(1, product.getStock(), 1));
         } else {

@@ -44,7 +44,6 @@ import javafx.stage.Stage;
 
 public class mainFormController implements Initializable {
 
-    // ---------- เมนู / โครงหน้า ----------
     @FXML
     private Button catalog_btn;
     @FXML
@@ -66,7 +65,7 @@ public class mainFormController implements Initializable {
     @FXML
     private Label username;
 
-    // ---------- Dashboard ----------
+    //dash
     @FXML
     private Label dash_customers;
     @FXML
@@ -80,7 +79,7 @@ public class mainFormController implements Initializable {
     @FXML
     private AreaChart<String, Number> dash_chartCustomer;
 
-    // ---------- Inventory ----------
+    //invento
     @FXML
     private TableView<Product> inventory_tableView;
     @FXML
@@ -115,7 +114,7 @@ public class mainFormController implements Initializable {
     @FXML
     private Button inventory_importBtn;
 
-    // ---------- Catalog (menu) ----------
+    // caatalog
     @FXML
     private ScrollPane menu_scrollPane;
     @FXML
@@ -150,11 +149,10 @@ public class mainFormController implements Initializable {
     private String currentUser = "";
     private String lastReceipt = "";
 
-    // ================= เริ่มต้น =================
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // ---- Inventory ----
+
         inventory_type.getItems().addAll(typeList);
         inventory_status.getItems().addAll(statusList);
 
@@ -167,23 +165,19 @@ public class mainFormController implements Initializable {
         inventory_col_Date.setCellValueFactory(new PropertyValueFactory<>("date"));
         inventory_tableView.setItems(products);
 
-        // คลิกแถวในตาราง แล้วข้อมูลขึ้นในฟอร์มด้านล่าง
         inventory_tableView.getSelectionModel().selectedItemProperty().addListener((obs, old, p) -> {
             if (p != null) {
                 fillForm(p);
             }
         });
 
-        // ---- Catalog ----
         menu_col_productName.setCellValueFactory(new PropertyValueFactory<>("productName"));
         menu_col_quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         menu_col_price.setCellValueFactory(new PropertyValueFactory<>("price"));
         menu_tableView.setItems(cart);
 
-        // พิมพ์จำนวนเงินแล้วเงินทอนอัปเดตทันที
         menu_amount.textProperty().addListener((obs, old, text) -> updateChange());
 
-        // ตั้งค่า GridPane ให้ใส่การ์ด 2 ใบต่อแถวพอดีกับ ScrollPane
         menu_gridPane.setPrefSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
         menu_gridPane.getColumnConstraints().clear();
         menu_gridPane.setHgap(4);
@@ -204,7 +198,7 @@ public class mainFormController implements Initializable {
         currentUser = name;
     }
 
-    // ================= สลับหน้า / Sign Out =================
+    // SIGNOUT
 
     @FXML
     public void switchPage(ActionEvent event) {
@@ -246,9 +240,8 @@ public class mainFormController implements Initializable {
         }
     }
 
-    // ================= Catalog =================
+    //CATALOG  :)
 
-    // สร้างการ์ดสินค้าทั้งหมดใหม่ (แสดงเฉพาะสินค้าที่สถานะ Available)
     private void refreshMenu() {
         URL cardUrl = getClass().getResource("/fxml/cardProduct.fxml");
         if (cardUrl == null) {
@@ -284,7 +277,6 @@ public class mainFormController implements Initializable {
         }
     }
 
-    // ถูกเรียกจากปุ่ม Add บนการ์ด
     public void addToCart(Product p, int qty) {
         int cartIndex = -1;
         int already = 0;
@@ -342,7 +334,6 @@ public class mainFormController implements Initializable {
             return;
         }
 
-        // เช็คสต็อกอีกรอบ เผื่อมีการแก้ไขใน Inventory หลังหยิบใส่ตะกร้า
         for (CartItem item : cart) {
             int idx = findIndex(item.getProductId());
             if (idx < 0 || products.get(idx).getStock() < item.getQuantity()) {
@@ -416,7 +407,6 @@ public class mainFormController implements Initializable {
             double amount = Double.parseDouble(menu_amount.getText().trim());
             change = Math.max(0, amount - cartTotal());
         } catch (NumberFormatException e) {
-            // ยังพิมพ์ไม่เสร็จ ปล่อยเป็น 0
         }
         menu_change.setText(String.format("%.2f", change));
     }
@@ -441,7 +431,6 @@ public class mainFormController implements Initializable {
         return sb.toString();
     }
 
-    // ================= Dashboard =================
 
     private void updateDashboard() {
         String today = LocalDate.now().toString();
@@ -483,7 +472,6 @@ public class mainFormController implements Initializable {
         fillChart(dash_chartCustomer, "Customers", customersByDate);
     }
 
-    // แสดงเฉพาะ 7 วันล่าสุดที่มีข้อมูล
     private void fillChart(AreaChart<String, Number> chart, String name,
             Map<String, ? extends Number> data) {
         XYChart.Series<String, Number> series = new XYChart.Series<>();
@@ -499,7 +487,7 @@ public class mainFormController implements Initializable {
         chart.getData().add(series);
     }
 
-    // ================= Inventory =================
+    //Inven
 
     @FXML
     public void inventory_addBtn(ActionEvent event) {
@@ -582,7 +570,6 @@ public class mainFormController implements Initializable {
         }
     }
 
-    // ---------- ตัวช่วย ----------
 
     private void fillForm(Product p) {
         inventory_productID.setText(p.getProductId());
@@ -598,8 +585,8 @@ public class mainFormController implements Initializable {
             inventory_imageView.setImage(new Image(imagePath, 127, 134, true, true));
         }
     }
-
-    // อ่านค่าจากฟอร์ม ถ้าข้อมูลไม่ถูกต้องจะแจ้งเตือนแล้วคืน null
+    
+    //arn jark form
     private Product readForm(String date) {
         String id = inventory_productID.getText().trim();
         String name = inventory_productName.getText().trim();

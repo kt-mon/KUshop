@@ -15,6 +15,5 @@ public class CartItem {
     public String getProductName() { return product.getProductName(); }
     public int getQuantity() { return quantity; }
 
-    // ราคารวมของรายการนี้ (ราคาต่อชิ้น x จำนวน)
     public double getPrice() { return product.getPrice() * quantity; }
 }
