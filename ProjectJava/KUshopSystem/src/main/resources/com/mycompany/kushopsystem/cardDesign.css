@@ -1,0 +1,27 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Nov 1, 2026, 4:35:38 PM
+    Author     : saowi_wfu9dau
+*/
+
+.card{
+    -fx-background-color: #fff;
+    -fx-background-radius: 5px;
+}
+
+.shadow{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 5,0,0,0);
+}
+
+.btn{
+    -fx-background-color: linear-gradient(to bottom right, #18ac08, #38d723);
+    -fx-cursor: hand;
+    -fx-text-fill: #fff;
+}
+
+.btn:hover{
+    -fx-background-color: linear-gradient(to bottom right, #18730f, #18ac08);
+}

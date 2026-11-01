@@ -44,5 +44,16 @@ public class UserStore {
     }
     Files.write(FILE, out);
 }
+    
+    public static int count() {
+    if (!Files.exists(FILE)) {
+        return 0;
+    }
+    try {
+        return (int) Files.readAllLines(FILE).stream().filter(l -> !l.isBlank()).count();
+    } catch (IOException e) {
+        return 0;
+    }
+}
      
 }

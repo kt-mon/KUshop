@@ -224,7 +224,7 @@ public class FXMLDocumentController implements Initializable {
         String[] user = UserStore.find(u);
         if (user != null && user[1].equals(p)) {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainForm.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/mainForm.fxml"));
                 Parent root = loader.load();
 
                 mainFormController main = loader.getController();
