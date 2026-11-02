@@ -137,8 +137,6 @@ public class mainFormController implements Initializable {
     private Button menu_payBtn;
     @FXML
     private Button menu_removeBtn;
-    @FXML
-    private Button menu_reciptBtn;
 
     private final String[] typeList = {"Shirt", "Bottoms", "Ceremony", "Accessories"};
     private final String[] statusList = {"Available", "Unavailable"};
@@ -147,7 +145,6 @@ public class mainFormController implements Initializable {
     private final ObservableList<CartItem> cart = FXCollections.observableArrayList();
     private String imagePath = "";
     private String currentUser = "";
-    private String lastReceipt = "";
 
 
     @Override
@@ -360,32 +357,13 @@ public class mainFormController implements Initializable {
         if (!save()) {
             return;
         }
-
-        lastReceipt = buildReceipt(total, amount);
-        cart.clear();
+         cart.clear();
         menu_amount.clear();
         updateTotal();
         refreshMenu();
         updateDashboard();
         showAlert(Alert.AlertType.INFORMATION,
                 "ชำระเงินสำเร็จ เงินทอน " + String.format("%.2f", amount - total));
-    }
-
-    @FXML
-    public void menuReceipt() {
-        if (lastReceipt.isEmpty()) {
-            showAlert(Alert.AlertType.INFORMATION, "ยังไม่มีรายการชำระเงิน");
-            return;
-        }
-        TextArea area = new TextArea(lastReceipt);
-        area.setEditable(false);
-        area.setPrefSize(340, 360);
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Receipt");
-        alert.setHeaderText(null);
-        alert.getDialogPane().setContent(area);
-        alert.showAndWait();
     }
 
     private double cartTotal() {
@@ -410,27 +388,6 @@ public class mainFormController implements Initializable {
         }
         menu_change.setText(String.format("%.2f", change));
     }
-
-    private String buildReceipt(double total, double amount) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("KU SHOP\n");
-        sb.append(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")))
-                .append("\n");
-        sb.append("User: ").append(currentUser).append("\n");
-        sb.append("--------------------------------\n");
-        for (CartItem item : cart) {
-            sb.append(item.getProductName()).append("\n");
-            sb.append("   ").append(item.getQuantity()).append(" x ")
-                    .append(String.format("%.2f", item.getProduct().getPrice()))
-                    .append(" = ").append(String.format("%.2f", item.getPrice())).append("\n");
-        }
-        sb.append("--------------------------------\n");
-        sb.append("Total:  ").append(String.format("%.2f", total)).append("\n");
-        sb.append("Amount: ").append(String.format("%.2f", amount)).append("\n");
-        sb.append("Change: ").append(String.format("%.2f", amount - total)).append("\n");
-        return sb.toString();
-    }
-
 
     private void updateDashboard() {
         String today = LocalDate.now().toString();

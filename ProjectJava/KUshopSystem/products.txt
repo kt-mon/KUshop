@@ -1,0 +1,11 @@
+SH-001|เสื้อนิสิตชาย|Shirt|18|250.0|Available|2026-11-01|file:/C:/Users/saowi_wfu9dau/Downloads/นิสิตช.png
+SH-002|เสื้อนิสิตหญิง|Shirt|0|250.0|Available|2026-11-01|file:/C:/Users/saowi_wfu9dau/Downloads/นิสิตญ.png
+BT-001|กางเกงนิสิตชาย|Bottoms|16|200.0|Available|2026-11-01|file:/C:/Users/saowi_wfu9dau/Downloads/กางเกงช.png
+BT-002|กระโปรงนิสิตหญิง|Bottoms|0|200.0|Available|2026-11-01|file:/C:/Users/saowi_wfu9dau/Downloads/กระโปรงญ.png
+CM-001|กางเกงนิสิตทางการ|Ceremony|19|200.0|Available|2026-11-01|file:/C:/Users/saowi_wfu9dau/Downloads/เกงทางการ.png
+CM-002|กระโปรงนิสิตทางการ|Ceremony|19|200.0|Available|2026-11-01|file:/C:/Users/saowi_wfu9dau/Downloads/กระโปรงญ.png
+AC-001|กระดุม|Accessories|29|150.0|Available|2026-11-01|file:/C:/Users/saowi_wfu9dau/Downloads/กระดุม.jpg
+AC-002|เข็มกลัด|Accessories|29|50.0|Available|2026-11-01|file:/C:/Users/saowi_wfu9dau/Downloads/เข็มกลัด.png
+AC-003|ตุ้งติ้ง|Accessories|29|65.0|Available|2026-11-01|file:/C:/Users/saowi_wfu9dau/Downloads/ตุ้งติ้ง.png
+AC-004|หัวเข็มขัด|Accessories|29|55.0|Available|2026-11-01|file:/C:/Users/saowi_wfu9dau/Downloads/หัวเข็มขัด.jpg
+AC-005|เนคไท|Accessories|28|45.0|Available|2026-11-01|file:/C:/Users/saowi_wfu9dau/Downloads/th-11134207-7r991-ll6emlxdb2ke00.jpg
